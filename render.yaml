@@ -1,0 +1,21 @@
+services:
+  # Option 1: Node Runtime (no Dockerfile needed)
+  # - type: web
+  #   name: nextjs-app
+  #   runtime: node
+  #   buildCommand: pnpm install && pnpm build
+  #   startCommand: pnpm start
+  #   envVars:
+  #     - key: NODE_VERSION
+  #       value: 20
+  #     - key: PNPM_VERSION
+  #       value: 9
+
+  # Option 2: Docker Runtime (uses Dockerfile)
+  - type: web
+    name: nextjs-app
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PORT
+        value: 3000
